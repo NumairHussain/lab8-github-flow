@@ -1,5 +1,7 @@
 from adventure.utils import read_events_from_file
 import random
+from rich.console import Console
+console = Console()
 
 default_message = "You stand still, unsure what to do. The forest swallows you."
 
@@ -22,11 +24,12 @@ def right_path(event):
 if __name__ == "__main__":
     events = read_events_from_file('events.txt')
 
-    print("You wake up in a dark forest. You can go left or right.")
+    console.print("You wake up in a [magenta]dark forest[/magenta]. You can go [yellow]left[/yellow] or [yellow]right[/yellow].")
     while True:
-        choice = input("Which direction do you choose? (left/right/exit): ")
+        choice = console.input("[bold]Which direction do you choose?[/bold] ([yellow]left/right/exit[/yellow]): ")
         choice = choice.strip().lower()
         if choice == 'exit':
+            console.print("[green]Thanks for playing! Safe travels![/green]")
             break
         
-        print(step(choice, events))
+        console.print(step(choice, events))
