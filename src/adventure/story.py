@@ -1,6 +1,6 @@
 from adventure.utils import read_events_from_file
 import random
-from rich import Console
+from rich.console import Console
 console = Console()
 
 default_message = "You stand still, unsure what to do. The forest swallows you."
